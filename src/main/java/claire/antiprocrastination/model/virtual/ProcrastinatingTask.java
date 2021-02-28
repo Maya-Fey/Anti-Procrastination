@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.Instant;
 
 import claire.antiprocrastination.common.Null;
+import claire.antiprocrastination.model.TemporalProxy;
 
 /**
  * Virtual representation of a task being procrastinated on.
@@ -43,7 +44,7 @@ public interface ProcrastinatingTask {
 	 */
 	default Duration getTaskAge()
 	{
-		return Null.nonNull(Duration.between(this.getTaskCreationDate(), Instant.now()));
+		return Null.nonNull(Duration.between(this.getTaskCreationDate(), TemporalProxy.now()));
 	}
 	
 	/**
